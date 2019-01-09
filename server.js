@@ -4,7 +4,10 @@
 // init project
 var express = require('express');
 var app = express();
-
+//Request Header Parser Microservice - challange fcc
+app.get('/api/whoami',function(req, res){
+  res.json({"ipaddress":req.ip,"language":req.headers["accept-language"],"software":req.headers["user-agent"]});
+});
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC 
 var cors = require('cors');
